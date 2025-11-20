@@ -1,38 +1,142 @@
+/* ========================================================= */
+/* 1. ESTILOS GLOBALES Y TEMA DE DOS TONOS (GRIS Y BLANCO)  */
+/* ========================================================= */
+
+body {
+  margin: 0;
+  /* Apple Font Family */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f2f2f2; /* Fondo gris claro */
+  color: #1d1d1f; /* Texto principal oscuro */
+  min-height: 100vh;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Títulos más impactantes */
+.App-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: 2.2em; /* Títulos grandes */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* El header es el contenedor principal del contenido, lo mantenemos en blanco */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ffffff; 
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: 80px; 
+  font-size: calc(10px + 1vmin);
+  color: #1d1d1f;
+}
+
+/* ========================================================= */
+/* 2. ESTILOS NAVBAR (Mayor Contraste)                      */
+/* ========================================================= */
+
+.navbar {
+  background-color: #ffffff; 
+  height: 50px; 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+  
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-logo {
+  font-size: 20px; /* Logo más grande */
+  font-weight: 700;
+  color: #1d1d1f;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 30px; 
+  flex-grow: 1; 
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-links a {
+  text-decoration: none;
+  color: #484848; 
+  font-size: 13px; 
+  font-weight: 400;
+  transition: color 0.2s ease;
+  padding: 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-links a:hover {
+  color: #000000;
+}
+
+/* ========================================================= */
+/* 3. ESTILOS DE COMPONENTES (Profundidad y Borde Limpio)   */
+/* ========================================================= */
+
+/* Sombras y estructura de los formularios */
+div[style*="border: 1px solid"] {
+  background-color: #ffffff; /* Fondo blanco */
+  border: none !important; /* Quitamos el borde visible de 1px */
+  border-radius: 12px !important;
+  /* Sombra más profunda y limpia */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08); 
+  width: 80%;
+  max-width: 600px;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Efecto hover sutil en los formularios (opcional) */
+div[style*="border: 1px solid"]:hover {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+}
+
+input {
+  padding: 10px !important;
+  border-radius: 6px !important;
+  border: 1px solid #ccc !important;
+  margin: 5px !important;
+  font-size: 0.9em;
+}
+
+/* Botones con degradado y sombra (más atractivos) */
+button {
+  padding: 10px 15px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  background-color: #0071e3 !important;
+  /* Usamos un ligero degradado para un look 3D sutil */
+  background-image: linear-gradient(180deg, #0077ed, #0066cc) !important;
+  color: white !important;
+  cursor: pointer;
+  font-size: 0.8em !important;
+  box-shadow: 0 2px 4px rgba(0, 113, 227, 0.4);
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #0066cc !important;
+  box-shadow: 0 3px 6px rgba(0, 113, 227, 0.5);
+  transform: translateY(-1px);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
 }

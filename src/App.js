@@ -1,30 +1,46 @@
 import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
-// Importamos TODOS los componentes
-import RegistrarUsuario from './components/RegistrarUsuario';
-import LoginUsuario from './components/LoginUsuario';
-import VerificarDispositivo from './components/VerificarDispositivo';
-import RegistrarDispositivo from './components/RegistrarDispositivo';
+// Importamos el Menú
+import Navbar from './components/Navbar';
+
+// Importamos todas las PÁGINAS creadas
+import AuthPage from './pages/AuthPage';
+import MarketplacePage from './pages/MarketplacePage';
+import VerificarPage from './pages/VerificarPage';
+import MiPanelPage from './pages/MiPanelPage';
+import InstitutionalPage from './pages/InstitutionalPage';
 
 function App() {
   return (
     <div className="App">
+      {/* 1. El menú de navegación se mostrará siempre arriba */}
+      <Navbar />
+
+      {/* 2. El 'header' es el contenedor de la página que cambia según la ruta */}
       <header className="App-header">
-        <h1>Bienvenido a Tracelet</h1>
-
-        {/* Mostramos los componentes de usuario */}
-        <RegistrarUsuario />
-        <LoginUsuario />
-
-        <hr style={{width: '80%'}} />
-
-        {/* Mostramos los componentes de dispositivo */}
-        <VerificarDispositivo />
-
-        <hr style={{width: '80%'}} />
-
-        <RegistrarDispositivo />
+        
+        {/* 3. Definición de todas las rutas de la aplicación */}
+        <Routes>
+          {/* RUTA PRINCIPAL (Home) */}
+          <Route path="/" element={<h2>Bienvenido a Tracelet</h2>} /> 
+          
+          {/* RUTA DE AUTENTICACIÓN (Login/Registro) */}
+          <Route path="/auth" element={<AuthPage />} />
+          
+          {/* RUTA DEL MARKETPLACE */}
+          <Route path="/marketplace" element={<MarketplacePage />} />
+          
+          {/* RUTA DE VERIFICACIÓN PÚBLICA */}
+          <Route path="/verificar" element={<VerificarPage />} />
+          
+          {/* RUTA DE GESTIÓN DEL USUARIO */}
+          <Route path="/mi-panel" element={<MiPanelPage />} />
+          
+          {/* RUTA DEL PANEL INSTITUCIONAL (Acceso Restringido) */}
+          <Route path="/institucional" element={<InstitutionalPage />} />
+        </Routes>
 
       </header>
     </div>
